@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   # root "posts#index"
 
 
-  get "lists", to: "lists#index"
+  # get "lists", to: "lists#index", as: :lists
+  # get "/lists/:id", to: "lists#show", as: :list
+  # get "lists/new", to: "lists#new"
+  # post "lists", to: "list#create"
+  resources :lists, only: [:show,:index,:create,:new]
 
-  # resources :movies
-  resources :movie, only: [:get]
 end
