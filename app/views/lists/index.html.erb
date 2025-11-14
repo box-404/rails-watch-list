@@ -1,7 +1,27 @@
 These are the lists
-<% @lists.each do |list| %>
-  <br>
-  <%= link_to list.name, list_path(list) %>
-<% end %>
+<%# <% @lists.each do |list| %>
+  <%# <br> %>
+  <%# <%= link_to list.name, list_path(list) %>
+<%# <% end %>
 
-<%= link_to "create list", new_list_path  %>
+<%# <%= link_to "create list", new_list_path  %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg);">
+  <div class="container">
+    <h1>Find your next movie!</h1>
+    <p>Share your favorite movies with your friends</p>
+    <a class="btn btn-warning" href="#">Start Here</a>
+  </div>
+</div>
+
+<div class="container">
+  <%= link_to "New List", new_list_path, class: "btn btn-warning mt-2" %>
+
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/274937/pexels-photo-274937.jpeg)">
+        <h2><%= list.name %></h2>
+        <%= link_to "", list_path(list), class: "card-link"  %>
+      </div>
+    <% end %>
+  </div>
+</div>

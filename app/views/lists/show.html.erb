@@ -1,4 +1,34 @@
-This is your list
-<div id="list">
-  <%= @list.name %>
+<%# This is your list
+<%# <div id="list"> %>
+  <%# <%= @list.name %>
+
+<%# <%= simple_form_for([@list, @bookmark]) do |f| %>
+<%# <%= f.input :comment %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/65128/pexels-photo-65128.jpeg);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <% @list.bookmarks.each do |bookmark| %>
+        <%= render "bookmark_card", bookmark: bookmark %>
+      <% end %>
+
+      <%= link_to root_path, class:"btn btn-warning mt-3" do  %>
+        <i class="fa-solid fa-house"></i>
+      <% end %>
+    </div>
+
+    <div class="col-3">
+      <%= simple_form_for([@list, @bookmark]) do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie %>
+        <%= f.submit "Add Movie", class: "btn btn-warning" %>
+      <% end %>
+    </div>
+  </div>
 </div>
