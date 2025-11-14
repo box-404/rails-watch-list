@@ -26,6 +26,7 @@
     <div class="col-3">
       <%= simple_form_for([@list, @bookmark]) do |f| %>
         <%= f.input :comment %>
+        <%= f.input :photo, as: :file %>
         <%= f.association :movie %>
         <%= f.submit "Add Movie", class: "btn btn-warning" %>
       <% end %>
